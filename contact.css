@@ -1,0 +1,278 @@
+.wrapper{
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 100%),url("contact-us-bg.png");
+  height: 70vh;
+  width: 100%;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-right: 20px;
+  padding: 20px 60px;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  background: transparent; 
+}
+.header.scrolled {
+  background: #000; 
+}
+
+header .logo {
+  font-size: 35px;
+  font-weight: normal;
+}
+
+header .logo span {
+  color: white;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+ gap: 50px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: orange;
+}
+
+header nav ul li a.buy-btn {
+  color: orange;
+  font-weight: bold;
+}
+
+.contact-section {
+  display: flex;             
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  z-index: 1; 
+  background-color: #f2f2f2;
+}
+
+
+.contact-sections::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, #f2f2f2 100%);
+}
+
+
+.contact-left {
+  flex: 1;                    
+  padding-left: 200px;
+   padding-top: 70px;
+}
+
+.contact-left h1{
+  font-weight: bolder;
+}
+
+.contact-left p{
+  font-size: 0.85rem;
+  font-size: medium;
+}
+
+.contact-right {
+  flex: 1;                   
+ padding: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .form-row .form-control {
+      flex: 1;
+    }
+
+    @media (max-width: 900px) {
+      .form-row {
+        flex-direction: column;
+      }
+    }
+    .contact-right input[type="text"], .contact-right textarea {
+      margin-bottom: 15px;
+    }
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 400px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 120px;
+ width: 800px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+button {
+  width: max-content;
+  padding: 12px 25px;
+  background-color: #3b2c1e;
+  color: white;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+button:hover {
+  background-color: #5a4325;
+}
+.hero-text h1 {
+  font-size: 48px;
+  line-height: 1.3;
+  font-weight: normal;
+}
+.info-section {
+  background: #f2f2f2;
+  background-attachment: fixed;
+  padding: 100px 60px 60px; 
+  text-align: center;
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  gap: 60px;
+}
+
+.info-box {
+  width: 290px;
+  height: 280px;
+  background: white;
+  padding: 34px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  justify-content: flex-start;
+  position: relative;
+  gap: 8px;
+}
+
+.info-box:nth-child(1) {
+  border-bottom: 3px solid purple;
+}
+.info-box:nth-child(2) {
+  border-bottom: 3px solid green;
+}
+.info-box:nth-child(3) {
+  border-bottom: 3px solid purple;
+}
+
+.info-box h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: #222;
+}
+
+.info-box p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+  margin: 6px 0;
+}
+
+.info-box em {
+  display: block;
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #333;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site-footer {
+  background-color: #1d1a18; 
+  color: #aaa;
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.social-icons {
+  margin: 60px 0;
+}
+
+.social-icons a {
+  color: #aaa;
+  background-color: #333029;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 10px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 25px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.footer-text .brand {
+  color: #555;
+}
+/* Custom breakpoints */
+@media (max-width: 900px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 24px;
+  }
+}
