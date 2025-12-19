@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<h1>Bought Tickets</h1>
+
+<form method="GET" action="/bought-tickets">
+  <input type="number" name="minPrice" placeholder="Min Price" value="<%= minPrice %>">
+  <input type="number" name="maxPrice" placeholder="Max Price" value="<%= maxPrice %>">
+  <button type="submit">Filter</button>
+</form>
+
+<div class="tickets">
+  <% tickets.forEach(ticket => { %>
+    <div class="card">
+      <h3><%= ticket.name %></h3>
+      <p><%= ticket.description %></p>
+      <strong>Price: Rs <%= ticket.price %></strong>
+    </div>
+  <% }) %>
+</div>
+
+<div class="pagination">
+  <% for(let i = 1; i <= totalPages; i++) { %>
+    <a href="?page=<%= i %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>"
+       class="<%= currentPage === i ? 'active' : '' %>">
+      <%= i %>
+    </a>
+  <% } %>
+</div>
+
+<%- include("partials/footer") %>
