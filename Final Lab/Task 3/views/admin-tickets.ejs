@@ -1,0 +1,27 @@
+<h2>Manage Tickets</h2>
+<a href="/admin/tickets/add" class="btn-add">Add New Ticket</a>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tickets.forEach(ticket => { %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.description %></td>
+        <td>
+          <a href="/admin/tickets/edit/<%= ticket._id %>" class="btn-edit">Edit</a>
+          <form action="/admin/tickets/delete/<%= ticket._id %>" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('Are you sure?')" class="btn-delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

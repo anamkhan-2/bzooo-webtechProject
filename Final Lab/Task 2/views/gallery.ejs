@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Be Zoo' %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="wrapper">
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <h2>Gallery</h2>
+        <h1>Witness the beauty of<br>exotic animals</h1>
+      </div>
+    </section>
+  </div>
+
+  <section class="info-section">
+    <div class="info-text">
+      Browse our comprehensive collection of stunning photographs showcasing the diverse wildlife at Be Zoo. From majestic lions to playful penguins, explore the incredible creatures that call our zoo home.
+    </div>
+  </section>
+
+  <section class="tour-section">
+    <div class="tour-container">
+      <div class="tour-left">
+        <h1>Big Cats Collection</h1>
+        <h2 class="highlight">Discover the power and grace of our magnificent big cats</h2>
+        <p class="subtext">From lions and tigers to leopards and jaguars, experience the raw beauty of nature's most powerful predators.</p>
+        <a href="/tickets" class="tour-btn">Learn More</a>
+      </div>
+      <div class="tour-right">
+        <img src="/images/home_zoo_pic2.png" alt="Big Cats">
+      </div>
+    </div>
+  </section>
+
+  <section class="numbers-section">
+    <div class="numbers">
+      <h3>Gallery Stats</h3>
+    </div>
+    <div class="numbers-container">
+      <div class="number-box">
+        <img src="/images/home_zoo_counter_1.png" alt="">
+        <div class="number-box-content">
+          <h2>500+</h2>
+          <p>Photos Collected</p>
+        </div>
+      </div>
+      <div class="number-box">
+        <img src="/images/home_zoo_counter_2.png" alt="">
+        <div class="number-box-content">
+          <h2>150+</h2>
+          <p>Animal Species</p>
+        </div>
+      </div>
+      <div class="number-box">
+        <img src="/images/home_zoo_counter_3.png" alt="">
+        <div class="number-box-content">
+          <h2>12</h2>
+          <p>Zones</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

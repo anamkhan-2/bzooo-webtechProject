@@ -1,0 +1,681 @@
+/* Root Variables */
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+    --accent-color: #ff6b6b;
+    --dark-bg: #1a1a2e;
+    --light-bg: #f8f9fa;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9f5f9 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+/* ============================
+   Progress Header Styles
+   ============================ */
+.progress-header {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    padding: 2.5rem 0;
+    box-shadow: 0 8px 32px rgba(46, 204, 113, 0.25);
+    margin-bottom: 3rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.step-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: 700;
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    font-size: 1.75rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.step.active .step-circle {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    transform: scale(1.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.step.completed .step-circle {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step.completed .step-circle::after {
+    content: '✓';
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.step.completed .step-circle {
+    font-size: 0;
+}
+
+.step-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step.active .step-label {
+    color: white;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.step.completed .step-label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+.step-line {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.step.completed .step-line {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .progress-steps {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .step {
+        flex: 0 0 48%;
+    }
+
+    .step-line {
+        display: none;
+    }
+
+    .step-label {
+        font-size: 0.85rem;
+    }
+
+    .step-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================
+   Main Content Styles
+   ============================ */
+.checkout-container {
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+.checkout-form {
+    background: linear-gradient(to bottom, #ffffff, #f8fbfc);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    border: 1px solid rgba(46, 204, 113, 0.1);
+    transition: var(--transition);
+}
+
+.section-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 3px solid #f0f0f0;
+}
+
+.section-title::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 28px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    margin-right: 0.75rem;
+    border-radius: 2px;
+}
+
+/* ============================
+   Form Styling
+   ============================ */
+.form-group {
+    margin-bottom: 1.75rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.6rem;
+    display: block;
+    font-size: 0.95rem;
+}
+
+.form-control,
+.form-select {
+    border: 2px solid #e3f2fd;
+    border-radius: 8px;
+    padding: 0.85rem 1.1rem;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.15);
+    outline: none;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #28a745;
+}
+
+.form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.35rem;
+    display: block;
+}
+
+.form-check {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    width: 1.35em;
+    height: 1.35em;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.75rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.25);
+}
+
+.form-check-label {
+    cursor: pointer;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ============================
+   Order Summary Styles
+   ============================ */
+.order-summary {
+    background: linear-gradient(to bottom, #ffffff, #f0fdf4);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    border: 1px solid rgba(46, 204, 113, 0.15);
+    transition: var(--transition);
+}
+
+@media (min-width: 992px) {
+    .order-summary {
+        position: sticky;
+        top: 20px;
+    }
+}
+
+.summary-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 3px solid #f0f0f0;
+}
+
+.summary-title::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 28px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    margin-right: 0.75rem;
+    border-radius: 2px;
+}
+
+.product-list {
+    margin-bottom: 2rem;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, #f8f9fa, #f0f7ff);
+    border-radius: 8px;
+    margin-bottom: 0.85rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.product-name {
+    font-weight: 600;
+    color: #212529;
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.product-qty {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+.product-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    min-width: 80px;
+    text-align: right;
+    font-size: 1rem;
+}
+
+.coupon-section {
+    margin-bottom: 2.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+    border: 2px solid #dcfce7;
+    border-radius: 10px;
+}
+
+.coupon-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.85rem;
+}
+
+.coupon-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.coupon-input {
+    flex: 1;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+}
+
+.coupon-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.coupon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.95rem;
+}
+
+.summary-row.total {
+    padding: 1.5rem 0;
+    border-bottom: none;
+    border-top: 2px solid #e9ecef;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.summary-row.total .summary-label {
+    color: #212529;
+}
+
+.summary-row.total .summary-value {
+    color: var(--primary-color);
+}
+
+.summary-label {
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.summary-value {
+    color: #212529;
+    font-weight: 600;
+}
+
+/* ============================
+   Payment Section Styles
+   ============================ */
+.payment-method {
+    padding: 1.5rem;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition);
+    background: white;
+}
+
+.payment-method:hover {
+    background-color: #f8f9fa;
+    border-color: var(--primary-color);
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 0.75rem;
+    width: 1.25em;
+    height: 1.25em;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.payment-method.active {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.05), rgba(46, 204, 113, 0.02));
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.15);
+}
+
+.payment-label {
+    font-weight: 600;
+    color: #212529;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.payment-details {
+    display: none;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e9ecef;
+}
+
+.payment-details.show {
+    display: block;
+}
+
+/* ============================
+   Review Section Styles
+   ============================ */
+.review-item {
+    padding: 1.1rem;
+    background: linear-gradient(135deg, #f8f9fa, #f0f7ff);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.review-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.5px;
+}
+
+.review-value {
+    color: #212529;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* ============================
+   Button Styles
+   ============================ */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-color: var(--secondary-color);
+    color: white;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--secondary-color), #1e8449);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(46, 204, 113, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+    border-color: #a0a0a0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.2);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(108, 117, 125, 0.3);
+}
+
+.btn-group-checkout {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+.btn-group-checkout .btn {
+    flex: 1;
+}
+
+/* ============================
+   Validation Feedback Styles
+   ============================ */
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+.form-control.is-invalid ~ .invalid-feedback,
+.form-select.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.valid-feedback {
+    display: none;
+    color: #28a745;
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+.form-control.is-valid ~ .valid-feedback {
+    display: block;
+}
+
+/* ============================
+   Accessibility Styles
+   ============================ */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============================
+   Focus States (Accessibility)
+   ============================ */
+.form-control:focus-visible,
+.form-select:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ============================
+   Divider Styles
+   ============================ */
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e9ecef, transparent);
+    margin: 2rem 0;
+}
+
+/* ============================
+   Mobile Responsive
+   ============================ */
+@media (max-width: 767px) {
+    .checkout-form,
+    .order-summary {
+        padding: 1.75rem;
+    }
+
+    .btn-group-checkout {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section-title,
+    .summary-title {
+        font-size: 1.15rem;
+    }
+
+    .progress-steps {
+        padding: 0 1rem;
+    }
+}

@@ -5,25 +5,18 @@ const Ticket = require("./models/Ticket");
 
 const app = express();
 
-/* =====================
-   MongoDB Connection
-===================== */
+
+
 mongoose.connect("mongodb://127.0.0.1:27017/beZooDB")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-/* =====================
-   App Config
-===================== */
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-/* =====================
-   Routes
-===================== */
 app.get("/", (req, res) => {
   res.render("home", { title: "Be Zoo - Home" });
 });
@@ -40,9 +33,7 @@ app.get("/tickets", (req, res) => {
   res.render("tickets", { title: "Buy Tickets - Be Zoo" });
 });
 
-/* =====================
-   BOUGHT TICKETS PAGE
-===================== */
+
 app.get("/bought-tickets", async (req, res) => {
   try {
     let page = parseInt(req.query.page) || 1;
@@ -51,12 +42,16 @@ app.get("/bought-tickets", async (req, res) => {
 
     let filter = {};
 
-    // Price filter
-    if (req.query.minPrice && req.query.maxPrice) {
-      filter.price = {
-        $gte: Number(req.query.minPrice),
-        $lte: Number(req.query.maxPrice)
-      };
+    if (req.query.minPrice || req.query.maxPrice) {
+      filter.price = {};
+      
+      if (req.query.minPrice && !isNaN(req.query.minPrice)) {
+        filter.price.$gte = Number(req.query.minPrice);
+      }
+      
+      if (req.query.maxPrice && !isNaN(req.query.maxPrice)) {
+        filter.price.$lte = Number(req.query.maxPrice);
+      }
     }
 
     const totalTickets = await Ticket.countDocuments(filter);

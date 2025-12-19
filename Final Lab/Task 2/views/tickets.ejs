@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Be Zoo' %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="wrapper">
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <h2>Tickets</h2>
+        <h1>Plan your perfect<br>zoo visit</h1>
+      </div>
+    </section>
+  </div>
+
+  <section class="info-section">
+    <a href="/bought-tickets" class="buy-btn">
+  Bought Tickets
+</a>
+
+    <div class="info-text">
+      Choose the perfect ticket option for your visit to Be Zoo. We offer flexible pricing for individuals, families, and groups.
+    </div>
+    <div class="info-boxes">
+      <div class="info-box">
+        <h1>Adult Ticket</h1>
+        <p><em>$25</em></p>
+        <p>Full day access to all zoo areas</p>
+        <p>Valid for one entry</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="info-box">
+        <h1>Child Ticket</h1>
+        <p><em>$15</em></p>
+        <p>Children aged 3-12</p>
+        <p>Educational activities included</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="info-box orange">
+        <h1>Family Package</h1>
+        <p><em>$70</em></p>
+        <p>2 Adults + 2 Children</p>
+        <p>Special discounts available</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour-section">
+    <div class="tour-container">
+      <div class="tour-left">
+        <h1>Annual Membership</h1>
+        <h2 class="highlight">Unlimited visits throughout the year</h2>
+        <p class="subtext">Become a member and enjoy unlimited access to Be Zoo plus exclusive member-only events and discounts.</p>
+        <a href="#" class="tour-btn">Learn More</a>
+      </div>
+      <div class="tour-right">
+        <img src="/images/images.jpg" alt="Membership">
+      </div>
+    </div>
+  </section>
+
+  <div class="ending">
+    <h3 style="color: black;">Book your tickets now and start<br>your amazing wildlife adventure!</h3>
+    <a href="#" class="buy-btn1">Purchase Tickets</a>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

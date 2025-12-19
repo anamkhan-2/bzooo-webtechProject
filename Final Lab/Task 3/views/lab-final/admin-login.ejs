@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<div class="container">
+  <h2>Admin Login</h2>
+  <% if (error) { %>
+    <div style="color: red;"><%= error %></div>
+  <% } %>
+  <form method="post" action="/admin/login">
+    <input type="hidden" name="redirect" value="<%= redirect %>" />
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+    </div>
+    <div>
+      <button type="submit">Login as Admin</button>
+    </div>
+  </form>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Be Zoo' %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="wrapper">
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <h2>The Zoo</h2>
+        <h1>Explore the amazing<br>world of wildlife!</h1>
+      </div>
+    </section>
+  </div>
+
+  <section class="info-section">
+    <div class="info-text">
+      Welcome to Be Zoo, your ultimate destination for wildlife experiences. Discover hundreds of animals from around the globe in their natural habitats.
+    </div>
+    <div class="info-boxes">
+      <div class="info-box">
+        <h1>Safari Tour</h1>
+        <p><em>$25 per person</em></p>
+        <p>Experience the thrill of a guided safari tour through our expansive zoo grounds.</p>
+        <a href="/tickets" class="btn">Book Now</a>
+      </div>
+      <div class="info-box">
+        <h1>Night Adventure</h1>
+        <p><em>$35 per person</em></p>
+        <p>See nocturnal animals in action with our special evening tours.</p>
+        <a href="/tickets" class="btn">Book Now</a>
+      </div>
+      <div class="info-box orange">
+        <h1>Educational Tour</h1>
+        <p><em>$15 per student</em></p>
+        <p>Learn fascinating facts about wildlife conservation and animal behavior.</p>
+        <a href="/tickets" class="btn">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
